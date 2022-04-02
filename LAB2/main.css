@@ -1,0 +1,46 @@
+html {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+/*-------------Menu------------ */
+#menu {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+}
+
+.menu-button {
+    text-decoration: none;
+    color: aliceblue;
+    border: 3px solid lightseagreen;
+    background-color: lightseagreen;
+    border-radius: 5px;
+    padding: 3px 10px 3px 10px;
+    margin: 0 10px 0 10px;
+}
+
+/*-------------Hero------------ */
+.site-title {
+    font-size: 2.5em;
+    font-weight: 500;
+    color: lightseagreen;
+}
+
+.gpu {
+    width: 500px;
+    height:350px;
+}
+
+.hero {
+    text-align: center;
+}
+
+/*-------------Boxes-------------*/
+#box-title {
+    color: lightseagreen;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
