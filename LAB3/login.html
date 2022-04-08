@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="login" content="log in to the shop!">
+        <link rel="stylesheet" href="main.css"/>
+        <link rel="icon" type="image/x-icon" href="login.png"> 
+        <title>Login</title>
+    </head>
+
+    <body>
+        <h1 class="site-title">Yonsei Exclusive GPU shop</h1>
+
+        <div class="hero">
+            <p><em>For all your gaming, crypto mining, and video editing needs!</em> </p>
+            <img class="gpu" src="gpus.jpg" alt="GPU shop">
+            <h3>50% off for Yonsei students and faculty!</h3>
+        </div>
+        
+        <p>
+            <a class="navigation-button" href="index.html"><strong>Menu</strong></a>
+            <a class="navigation-button" href="login.html"><strong>Login</strong></a>
+            <a class="navigation-button" href="signup.html"><strong>Signup</strong></a>
+        </p>
+        
+        <hr>
+
+        <div class="box">
+            <div>
+                <h2 id="box-title">Login</h2>
+                <form method="get" autocomplete="on">
+                <p>
+                    <label>Username:
+                    <input type="text" name="username" placeholder="Username" autofocus required></label><br><br>
+                    <label>Password:
+                    <input type="password" name="password" placeholder="Password" required></label>
+                </p>  
+                <input type="submit" value="Login">
+                <input type="button" onclick="window.location.href='signup.html';" value="Signup">
+                </form>
+            </div>
+        </div>
+        
+    </body>
+</html>
