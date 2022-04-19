@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="login" content="log in to the shop!">
+        <link rel="stylesheet" type="text/css" href="main.css" >
+        <link rel="icon" type="image/x-icon" href="login.png"> 
+        <title>Login</title>
+    </head>
+
+    <body>
+        <h1 class="site-title">Yonsei Exclusive  GPU shop</h1>
+
+        <div class="hero">
+            <p><em>For all your gaming, crypto mining, and video editing needs!</em> </p>
+            <img class="gpu" src="gpus.jpg" alt="GPU shop">
+            <h3>50% off for Yonsei students and faculty!</h3>
+        </div>
+
+        <p class="navigation">
+            <a class="navigation-button" href="index.html"><strong>Menu</strong></a>
+            <a class="navigation-button" href="login.html"><strong>Login</strong></a>
+            <a class="navigation-button" href="signup.html"><strong>Signup</strong></a>
+        </p>
+
+        <hr>
+
+        <div class="box">
+            <div>
+                <h2 id="box-title">Signup</h2>
+                <form method="get" autocomplete="on">
+                    <label>Name*:
+                        <input type="text" name="name" placeholder="Your Name" autofocus required></label><br><br>
+                    <label>Username*:
+                        <input type="text" name="lastname" placeholder="Your username" required></label><br><br>   
+                    <label>Password*:
+                        <input type="password" name="password" placeholder="Password" required></label><br><br>   
+                    <label>Yonsei ID*:
+                        <input type="number" name="yonseiid" min="1900000000" max="9999999999" placeholder="Yonsei ID" required></label><br><br>  
+                    <label>Class of*:
+                        <input type="number" name="classyear" min="1940" max="2023" placeholder="Class of ####" step="0.5" required></label><br><br>  
+                    <label>Email*:
+                        <input type="email" name="email" placeholder="Yonsei Email" required></label><br><br>  
+                    <label>*Phone Number:
+                        <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="012-3456-7890" required></label><br>  
+                    <p>
+                        Desired GPU:<br>
+                        <label>RTX 10 Series:
+                            <input type="radio" name="desired-gpu" value="rtx10" checked></label><br> 
+                        <label>RTX 20 Series:
+                            <input type="radio" name="desired-gpu" value="rtx20"></label><br> 
+                        <label>RTX 30 Series:
+                            <input type="radio" name="desired-gpu" value="rtx30"></label><br> 
+                        <label>RX 5000 Series:
+                            <input type="radio" name="desired-gpu" value="rx5"></label><br> 
+                        <label>RX 6000 Series:
+                            <input type="radio" name="desired-gpu" value="rx6"></label><br> 
+                    </p>
+                        
+                    
+                    <input type="submit" value="Complete">
+                    <input type="button" onclick="window.location.href='login.html';" value="Login">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

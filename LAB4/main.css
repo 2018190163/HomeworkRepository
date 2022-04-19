@@ -1,0 +1,156 @@
+html {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+/*-------------Menu------------ */
+#menu {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+}
+
+.navigation {
+    display: flex;
+}
+
+.navigation-button {
+    text-decoration: none;
+    color: white;
+    background-color: lightseagreen;
+    border-radius: 5px;
+    padding: 3px 10px 3px 10px;
+    margin: 0 10px 0 10px;
+}
+
+/*-------------Hero------------ */
+.h1 {
+    animation: 1s ease-out 0s 1 headerslide;
+    font-size: 2.5em;
+    font-weight: 500;
+    color: lightseagreen;
+}
+
+.gpu {
+    width: 500px;
+    height:350px;
+}
+
+.hero {
+    text-align: center;
+}
+
+/*-------------Boxes-------------*/
+#box-title {
+    color: lightseagreen;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*-------------Welcome page-------------*/
+
+.everything {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.almost-everything {
+    max-width: 1020px;
+}
+
+.rows {
+    display: flex;
+    flex: 25%;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    background-color: lightblue;
+    max-width: 300px;
+    min-height: 300px;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.card-image {
+    background-color: rgb(114, 116, 204);
+    height: 220px;
+    background-size: cover;
+    margin-bottom: 10px;
+    border-radius: 20px 20px 0 0;
+}
+
+.item-1{
+    background-image: url(3090.jpg);
+}
+
+.item-2{
+    background-image: url(3060.jpg);
+}
+
+.item-3{
+    background-image: url(6800.jpg);
+}
+
+.item-1:hover{
+    transform: rotate(360deg);
+    transition: 1s;
+    cursor: pointer;
+}
+
+.item-2:hover{
+    transform: rotate(-360deg);
+    transition: 1s;
+    cursor: pointer;
+}
+
+.item-3:hover{
+    transform: translate(0, 195px) scale(1,2.8);
+    transition: 1s;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.item-description h3{
+    color: black;
+    padding: 10px;
+    font-size: 1.7em;
+}
+
+.item-description h4{
+    color: white;
+    background-color: lightseagreen;
+    text-align: center;
+    display: block;
+    padding: 15px 10px;
+    margin: 20px 70px;
+}
+
+.item-description p{
+    font-size: 0.8em;
+    padding: 10px;
+}
+
+@keyframes headerslide {
+    0% {
+        transform: translateX(200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@media screen {
+    
+}
