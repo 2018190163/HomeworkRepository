@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Yonsei GPU Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <h1>The Yonsei GPU Store</h1>
+      <div class="navigation">
+        <a href="login.html">Login</a>
+        <a href="signup.html">Signup</a>
+        <a href="index.html">Shop</a>
+      </div>
+    </header>
+    <div>
+      <aside>
+        <form>
+          <div>
+            <label for="maker">Choose a Manufacturer:</label>
+            <select id="maker">
+              <option selected>All</option>
+              <option>Nvidia</option>
+              <option>AMD</option>
+            </select>
+          </div>
+          <div>
+            <label for="searchTerm">Enter name of GPU:</label>
+            <input type="text" id="searchTerm" placeholder="e.g. 3060">
+          </div>
+          <div>
+            <button id="searchBtn">Filter results</button>
+          </div>
+        </form>
+      </aside>
+      <main>
+        
+      </main>
+    </div>
+    <script>
+      fetch('product.json')
+        .then( response => {
+          if(!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then( json => initialize(json) )
+        .catch( err => console.error(`Fetch problem: ${err.message}`) );
+      
+      function initialize(productList) {
+        const maker = document.querySelector('#maker');
+        const searchTerm = document.querySelector('#searchTerm');
+        const searchBtn = document.querySelector('#searchBtn');
+        const main = document.querySelector('main');
+
+        let lastMaker = maker.value;
+        let lastSearch = '';
+
+        let currentDisplay = productList; 
+
+        updateDisplay();
+
+        searchBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          doSearch();
+        })
+
+
+        function doSearch(){
+          currentDisplay = [];
+          if (maker.options[maker.selectedIndex].text.localeCompare('All') === 0) {
+              currentDisplay = productList;
+          } else {
+              for (const product of productList) {
+                if (product.maker.localeCompare(maker.options[maker.selectedIndex].text) === 0 ) {
+                currentDisplay.push(product);
+              }
+            }
+          }
+          currentDisplay = currentDisplay.filter( product => product.name.toLowerCase().includes(searchTerm.value.toLowerCase()) );
+          updateDisplay();
+        }
+
+        function updateDisplay() {
+          while (main.firstChild) {
+            main.removeChild(main.firstChild);
+          }
+          if (currentDisplay.length === 0) {
+            const p = document.createElement('p');
+            p.textContent = 'No result to display, try a different search term.';
+            main.appendChild(p);
+          } else {
+            for (const product of currentDisplay) {
+              fetchBlob(product);
+            }
+          }
+        }
+
+        function fetchBlob(product) {
+          const url = product.image;
+          fetch(url)
+            .then( response => {
+              if (!response.ok) {
+                throw new Error(`Http error: ${response.status}`);
+              }
+              return response.blob();
+            })
+            .then( blob => displayProduct(blob, product))
+            .catch( err => console.error(`Fetch problem: ${err.message}`) );
+        }
+
+        function displayProduct(blob, product) {
+          const blobUrl = URL.createObjectURL(blob);
+          const section = document.createElement('section');
+          const heading = document.createElement('h2');
+          const paragraph = document.createElement('p');
+          const image = document.createElement('img');
+
+          
+
+          section.setAttribute('class', product.maker);
+
+          heading.textContent = product.name;
+
+          paragraph.textContent = `$${product.price}`;
+          image.src = blobUrl;
+          image.alt = product.name;
+
+          section.addEventListener('click', function(e) {this.querySelector('p').classList.toggle('visible')});
+          section.addEventListener('click', function(e) {this.querySelector('img').classList.toggle('visible')});
+
+          main.appendChild(section);
+          section.appendChild(heading);
+          section.appendChild(paragraph);
+          section.appendChild(image);
+        }
+      }
+    </script>
+  </body>
+</html>
